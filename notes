@@ -1,0 +1,72 @@
+check node and npm version > 18
+install nestjs globally - npm install -g nestjs/cli
+
+Create a new nest project - nest new lesson2
+app.service and app.controller is the file where we can write the logics and also these file is imported in one place which is app.module
+
+Now if I want to create a new api , this is short command to create only one file , further we will create whole api files which are required with 1 file
+nest g module users - will create a folder users and create module file of users with some dummy related code
+same we have commands like - nest g controller users and nest g service users
+
+///////////////// Controller ///////////////  
+The main work of controller to get the request and transfer it to service module , it add some logic and then again sends back to the controller which give to the client via controller
+EG of the one controller
+@Get(':id') // GET /users/:id
+    findOne(@Param('id') id: string){
+        return { id }
+    }
+
+
+/////////////Providers / Service ///////////////
+In the service file we create and write the logics which takes the pay;load and preocess the data maybe with the DB and then return to controller which is the caller of the function.
+We create some methods in provider and use it in controller
+
+////////////// Nest js DTO validations /////////
+
+like we just hit "user?role=admin" it works but "user?role=Aashish" OR "user/hello" it gives a empty array which is a problem
+we use DTO viadatiuon for validating the upcommin request
+Ponts to be noted - DTO is just the structure at code level 
+Now we will apply some of the validations
+Apply validations in the DTO , DTO is the thing which can process the request so we can also apply validation there
+we have appied class-validator in DTO to get the upcomming request but we also have to tell controller to manage it
+apply validation pipe in the body decorator
+
+We have applied validations
+Now we can apply http exceptions
+We will apply notFoundException
+
+///////////// CH - 5 Now connect to the DB  ///////////
+
+
+
+Now we are implementing DB connectivity
+Prisma - A simple ORM like mongoose in mongoDB
+Neon - A online DB like ATLAS in mongoDB
+
+Create  a modal in prisma file then 
+npx prisma migrate reset - if there is any cache
+npx prisma migrate  dev --name init - to create a auto genetradeted usable schema
+npm prisma generate - If we make amy changes in schema hgen run this command
+
+Belwo is the code for connection with DB
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { PrismaClient } from 'generated/prisma';
+
+@Injectable()
+export class DatabaseService extends PrismaClient implements OnModuleInit {
+    async onModuleInit() {
+        await this.$connect()
+    }
+}
+
+IMP command to create module like user
+nest g resource employees
+
+Now we can use validation of ORM prisma , where we have applied DTO at the same place we can apply Prisma.emplyeeCreateInput and Prisma.emplyeeUpdateInput
+
+so in service import the database service and configure it in constructor and then call it when we want to intract with DB
+
+
+
+//////// CH - 6 Global URL prifix , ratelimiting , CORS ///////////
+
