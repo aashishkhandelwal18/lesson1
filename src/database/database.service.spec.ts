@@ -16,5 +16,3 @@ describe('DatabaseService', () => {
     expect(service).toBeDefined();
   });
 });
-
-// Hy common , apni thokar me he duniya sari
