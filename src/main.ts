@@ -14,4 +14,4 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
-// Today is the video
+// (MAIN) Today is the video for the GITTTT
