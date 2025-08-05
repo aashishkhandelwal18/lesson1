@@ -15,4 +15,4 @@ async function bootstrap() {
 }
 bootstrap();
 // (MAIN) Today is the video for the GITTTT
-// (MAIN) Changes 1st for another commitgit 
+// (MAIN) Changes 2nd for another commitgit 
