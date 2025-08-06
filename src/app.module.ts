@@ -19,4 +19,4 @@ import { MyLoggerModule } from './my-logger/my-logger.module';
 export class AppModule {}
 
 
-// v6
+// v7
