@@ -19,9 +19,4 @@ import { MyLoggerModule } from './my-logger/my-logger.module';
 export class AppModule {}
 
 
-<<<<<<< HEAD
 // v6
-=======
-// temp changes
-// hello
->>>>>>> c1d611712d57d5f2ca3cfcbce81cb253f0dec996
